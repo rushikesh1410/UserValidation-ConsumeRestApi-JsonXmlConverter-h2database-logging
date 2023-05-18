@@ -1,0 +1,220 @@
+
+
+
+/*	
+	@org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<Map<String, List<String>>> handleValidationErrors(MethodArgumentNotValidException ex) {
+		List<String> errors = ex.getBindingResult().getFieldErrors().stream().map(FieldError::getDefaultMessage)
+				.collect(Collectors.toList());
+		return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+	}
+
+	private Map<String, List<String>> getErrorsMap(List<String> errors) {
+		Map<String, List<String>> errorResponse = new HashMap<>();
+		errorResponse.put("errors", errors);
+		return errorResponse;
+	}
+*/	
+
+
+
+
+
+//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+//	@ResponseBody
+//	@org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
+//	public Map<String, String> handleInValidArgument(MethodArgumentNotValidException ex) 
+//	{
+//		Map<String, String> errorMap = new HashMap<>();
+//		ex.getBindingResult().getFieldErrors().forEach(error -> 
+//		{errorMap.put("errorMessage", error.getDefaultMessage());});
+//		return errorMap;
+//	}
+	
+//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+//	@ResponseBody
+//	@org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
+//	public Map<String, String> handleInValidArgument1(MethodArgumentNotValidException ex) 
+//	{
+//		Map<String, String> errorMap = new HashMap<>();
+//		ex.getBindingResult().getFieldErrors().forEach(error -> 
+//		{errorMap.put(error.getField(), error.getDefaultMessage());});
+//		return errorMap;
+//	}
+
+
+//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+//	@ResponseBody
+//	@org.springframework.web.bind.annotation.ExceptionHandler(HttpMessageNotReadableException.class)
+//	public Map<String, String> handleInvalidJson(HttpMessageNotReadableException ex, javax.servlet.http.HttpServletRequest request) {
+//		
+//		if (request.getHeader("Content-Type").equals("application/json")) {
+//			
+//			Map<String, String> errorMap = new HashMap<>();
+//			String errormessage = ex.getLocalizedMessage();
+//			
+//			if (errormessage.contains("int")) {
+//				errormessage = "Age must be a number";
+//				errorMap.put("invalidAge", errormessage);
+//			}
+//			if (errormessage.contains(" Unexpected character ('\"' (code 34)): was expecting comma to separate Object entries")) {
+//				errormessage = "comma expected to separate object entries";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("Unexpected end-of-input: expected close marker for Object")) {
+//				errormessage = "expected close marker for Object";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			
+//		//	Cannot construct instance of `com.user.validation.dto.UserRequest`
+//		
+//			if (errormessage.contains("Cannot construct instance of `com.user.validation.dto.UserRequest`")) {
+//				errormessage = "Invalid Json or expected start marker for Object";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			
+//			if (errormessage.contains(" was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false'")) {
+//				errormessage = "check the field 'age', age must be a number ";
+//				errorMap.put("invalidAge", errormessage);
+//			}
+//			if (errormessage.contains("Unexpected character (',' (code 44)): expected a value")) {
+//				errormessage = "Name cannot be empty or null,name Must be of 2 - 30 characters";
+//				errorMap.put("invalidName", errormessage);
+//			}
+//			
+//			if (errormessage.contains("was expecting a colon to separate field name and value")) {
+//				errormessage = "a colon is expected to separate the field name and the value";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//
+//			if (errormessage.contains("expected a value")) {
+//				errormessage = "Age can't be null or empty, must between 18 to 70";
+//				errorMap.put("invalidAge", errormessage);
+//			}
+//		
+//			return errorMap;
+//		} 
+//		
+//		if(request.getHeader("Content-Type").equals("application/xml")){
+//			
+//			Map<String, String> errorMap = new HashMap<>();
+//			String errormessage = ex.getMessage();
+//			
+//			if (errormessage.contains("int")) {
+//				errormessage = "Age must be a number";
+//				errorMap.put("invalidAge", errormessage);
+//			}
+//			if (errormessage.contains("end tag Expected '>'")) {
+//				errormessage = "end tag Expected '>'";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("(missing closing '>'?)")) {
+//				errormessage = "end tag Expected '>'";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("Unexpected end of input block in end tag")) {
+//				errormessage = "end tag Expected '>'";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("[1,1]")) {
+//				errormessage = "Start tag Expected '<' ";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("Validation failed for object")) {
+//				errormessage = "<User></User> is expected";
+//				errorMap.put("invalidXml", errormessage);
+//			}
+//			if (errormessage.contains("was expecting a close tag for element")) {
+//				errormessage = "tag is expected for element < User>";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("Unexpected close tag")) {
+//				errormessage = "tag is expected ' <'";
+//				errorMap.put("syntaxError", errormessage);
+//			}
+//			if (errormessage.contains("Required request body")) {
+//				errormessage = "Required request body is missing";
+//				errorMap.put("errorMessage", errormessage);
+//			}
+//			return errorMap;
+//		}
+//		return null;
+//	}
+
+
+
+
+
+	// UNAUTHORIZED user 401 java.lang.NullPointerException
+	
+	
+//	@org.springframework.web.bind.annotation.ExceptionHandler(java.lang.NullPointerException.class)
+//	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+//	@ResponseBody
+//	public ResponseEntity<?> handleInvalidAuthorization(Exception ex, HttpServletRequest req) 
+//	{
+//		//String errorMsg = ex.getMessage();
+//
+//		HttpHeaders headers = new HttpHeaders();
+//		
+//		if (req.getHeader("Content-Type").contains("application/Json")) 
+//		{
+//			if (req.getHeader("Accept").contains("application/json"))
+//			{
+//				headers.set("Content-type", "application/json");
+//			}
+//		}
+//		if (req.getHeader("Content-Type").contains("application/Json")) 
+//		{
+//			if (req.getHeader("Accept").contains("application/xml")) 
+//			{
+//				headers.set("Content-type", "application/xml");
+//			}
+//		}
+//		if (req.getHeader("Content-Type").contains("application/xml")) 
+//		{
+//			if (req.getHeader("Accept").contains("application/json")) 
+//			{
+//				headers.set("Content-type", "application/json");
+//			}
+//		} 
+//		if (req.getHeader("Content-Type").contains("application/xml")) 
+//		{
+//			if (req.getHeader("Accept").contains("application/xml")) 
+//			{
+//				headers.set("Content-type", "application/xml");
+//			}
+//		}
+//		
+//		
+////		else
+////		{
+////			headers.set("Content-type", "application/xml");
+////
+////		}
+//		
+//
+//		if(!(req.getHeader("id").contains("12345"))) 
+//		{
+//			Map<String,String> maps = new HashMap<>() ;
+//			maps.put("invalidId", "id entered is wrong");
+//			errorsClass.setError(maps);
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).headers(headers).body(errorsClass);
+//		}
+//		
+//		String errorMsg = ex.getMessage(); 
+//		
+//		if (errorMsg.contains("Cannot invoke \"String.contains(java.lang.CharSequence)\" because the return value of \"javax.servlet.http.HttpServletRequest.getHeader(String)\" is null")) 
+//		{
+//			Map<String, String> maps = new HashMap<>();
+//			maps.put("invalidId", "enter id");
+//			errorsClass.setError(maps);
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).headers(headers).body(errorsClass);
+//		}
+//
+//		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).headers(headers).body("errorsClass");
+//	}
+
+
+
+
